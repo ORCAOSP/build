@@ -14,11 +14,6 @@ else
 SHELL := /bin/bash
 endif
 
-# Utility variables.
-empty :=
-space := $(empty) $(empty)
-comma := ,
-
 # Tell python not to spam the source tree with .pyc files.  This
 # only has an effect on python 2.6 and above.
 export PYTHONDONTWRITEBYTECODE := 1
@@ -135,9 +130,6 @@ endif
 # Define most of the global variables.  These are the ones that
 # are specific to the user's build configuration.
 include $(BUILD_SYSTEM)/envsetup.mk
-
-# Useful macros
-include $(BUILD_SYSTEM)/linaro_compilerchecks.mk
 
 # Boards may be defined under $(SRC_TARGET_DIR)/board/$(TARGET_DEVICE)
 # or under vendor/*/$(TARGET_DEVICE).  Search in both places, but

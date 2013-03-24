@@ -50,6 +50,9 @@ endif
 #$(shell rm -f tag-list.csv)
 #tag-list-first-time := false
 #endif
+#comma := ,
+#empty :=
+#space := $(empty) $(empty)
 #$(shell echo $(lastword $(filter-out config/% out/%,$(MAKEFILE_LIST))),$(LOCAL_MODULE),$(strip $(LOCAL_MODULE_CLASS)),$(subst $(space),$(comma),$(sort $(LOCAL_MODULE_TAGS))) >> tag-list.csv)
 
 LOCAL_UNINSTALLABLE_MODULE := $(strip $(LOCAL_UNINSTALLABLE_MODULE))
@@ -499,11 +502,7 @@ ifndef LOCAL_UNINSTALLABLE_MODULE
   # installation;  hence, LOCAL_ACP_UNAVAILABLE.
 ifneq ($(LOCAL_ACP_UNAVAILABLE),true)
 $(LOCAL_INSTALLED_MODULE): $(LOCAL_BUILT_MODULE) | $(ACP)
-ifeq ($(OUT_DIR),out)
-	@echo -e ${CL_INS}"Install: $(ANDROID_BUILD_TOP)/$@"${CL_RST}
-else
 	@echo -e ${CL_INS}"Install: $@"${CL_RST}
-endif
 	$(copy-file-to-new-target)
 else
 $(LOCAL_INSTALLED_MODULE): $(LOCAL_BUILT_MODULE)

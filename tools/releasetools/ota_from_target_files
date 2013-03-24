@@ -403,34 +403,26 @@ def WriteFullOTAPackage(input_zip, output_zip):
   device_specific.FullOTA_InstallBegin()
 
   script.ShowProgress(0.5, 0)
+  script.Print("*******************************************")
+  script.Print("* ooooooooo.                           .  *")
+  script.Print("* 888    Y88.                       .o8   *") 
+  script.Print("* 888   .d88'  .ooooo.   .ooooo.  .o888oo *")
+  script.Print("* 888ooo88P'  d88' `88b d88' `88b   888   *")
+  script.Print("* 888`88b.    888   888 888   888   888   *")
+  script.Print("* 888  `88b.  888   888 888   888   888 . *")
+  script.Print("* o888o  o888 `Y8bod8P' `Y8bod8P'    888  *")
+  script.Print("*                                         *")
+  script.Print("* oooooooooo.                             *")
+  script.Print("* `888'   `Y8b                            *")
+  script.Print("*  888     888  .ooooo.  oooo    ooo      *")
+  script.Print("*  888oooo888' d88' `88b  `88b..8P'       *")
+  script.Print("*  888    `88b 888   888    Y888'         *")
+  script.Print("*  888    .88P 888   888  .o8''88b        *")
+  script.Print("* o888bood8P'  `Y8bod8P' o88'   888o      *")
+  script.Print("*******************************************") 
 
   if OPTIONS.wipe_user_data:
     script.FormatPartition("/data")
-
-  script.Print("....................................... OM.................")
-  script.Print(".....................................MMMMM ................")
-  script.Print("...................................,M..........M ..........")
-  script.Print(".................. D~MMMDM ........7...........MMMM7.......")
-  script.Print("...................7....MMMMM.........N ...N....... M .....")
-  script.Print(".....................O...DMMMM8.....,........M.. ....M.....")
-  script.Print("...................... ...MMMMMNMNM=..........O.... .......")
-  script.Print(".......................,..NMNMMMMMM...... .... ............")
-  script.Print(".......................MMMMMM.....M ....MMM... .MM.........")
-  script.Print("....................MMMMMM........MN...............$.......")
-  script.Print(".................MMMMMMMM....... MMMM........NMMMMMM,......")
-  script.Print("...............MMMMMMMMMMMMMMMMMMMMMMMN~. ZMMMMMMMMMM......")
-  script.Print(". I8Z: . ....MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,.....")
-  script.Print("MMMMMMMMMMMMMMMMMM~~DMMMMMMMMMMMMMMMMM..NMMMMMMMMMMMMMZO...")
-  script.Print("MMMMMMMMMMMMMMMMMM....... DMMMMMMMMMMI................. ...")
-  script.Print("..:MMMMMMMMMMMMMMN..........MMMMMMMMM ................D....")
-  script.Print(".........MMMMMMM. M.. ... =MMMMMMMMM.......................")
-  script.Print("........MMMMMMMM......... MMMMMMM~Z.................MMM....")
-  script.Print("....... MMMMMM ..........MMMMMM .: ..............~.DMMM8...")
-  script.Print(".......8MMMMMM.........MMMMM?....... . :I$?, ........ .....")
-  script.Print("...... MMMMMD......... MM~.................................")
-  script.Print("......MMMMMD...............................................")
-  script.Print("......OMMMM.....-THE ORCA PROJECT-.........................")
-  script.Print("..................drewgaren.com............................")
 
   if "selinux_fc" in OPTIONS.info_dict:
     WritePolicyConfig(OPTIONS.info_dict["selinux_fc"], output_zip)
@@ -453,8 +445,10 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.ShowProgress(0.2, 0)
 
   script.ShowProgress(0.2, 10)
+  script.Print("*Flashing Kernel*")
   script.WriteRawImage("/boot", "boot.img")
 
+  script.Print("*RootBox Installed - Now Flash Latest 4.2.1 GAPPS*")
   script.ShowProgress(0.1, 0)
   device_specific.FullOTA_InstallEnd()
 
@@ -861,7 +855,7 @@ def main(argv):
 
   common.Cleanup()
 
-  print "Shamu Killaz. no orca's were harmed in the making of this rom."
+  print "done."
 
 
 if __name__ == '__main__':
